@@ -1,0 +1,46 @@
+#! /usr/bin/python
+import argparse
+import numpy as np
+from math import *
+#from time import time
+#start = time()
+try:
+    from ase.io import read, write
+except:
+    pass
+
+parser = argparse.ArgumentParser(description="""Does basic math in python style 
+        e.g. pc 5+4; pc "sin(pi/2)"; pc x=5 "sin(x/2)" 
+        to use Sympy add 's' as first argument
+        e.g. pc s "integrate(x**2, (x,2,4))"
+        
+        **Each line will be executed as python code
+        **Numpy is already loaded as np
+        **Function from sympy.plotting are imported 
+        **You can use a=ar([1,2,3,4]) as an alternative for np.array """)
+parser.add_argument('expr', nargs='+', help='Expression')
+args = parser.parse_args()
+
+expr = args.expr
+ixi=0
+if expr[0]=='s':
+    try:
+        from sympy import *
+        from sympy.plotting import *
+        init_printing(use_unicode=True)
+        x, y, z, t = symbols('x y z t')
+        f, g, h = symbols('f g h', cls=Function)
+        ixi = 1
+    except:
+        print('Sympy is not installed\n')
+
+def ar(l):
+    return np.array(l)
+
+for i in expr[ixi:]:
+    try:
+        print(eval(i))
+    except:
+        exec(i)
+#end = time()
+#print(end-start)
