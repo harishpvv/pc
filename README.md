@@ -252,8 +252,9 @@ We can you sympy for interactive plotting
 ```
 This will show this
 
-![plot](https://github.com/harishpvv/pc/blob/[branch]/image.jpg?raw=true)
+![plot](https://github.com/harishpvv/pc/blob/main/x2.png)
 
 ```
 > pc s "plot3d(x**2+y**2)"
 ```
+![plot](https://github.com/harishpvv/pc/blob/main/3d.png)
