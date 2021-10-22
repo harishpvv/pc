@@ -250,6 +250,9 @@ We can you sympy for interactive plotting
 ```
 > pc s "plot(x**2)"
 ```
+This will show this
+
+![plot](https://github.com/harishpvv/pc/blob/[branch]/image.jpg?raw=true)
 
 ```
 > pc s "plot3d(x**2+y**2)"
